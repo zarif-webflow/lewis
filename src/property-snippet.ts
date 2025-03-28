@@ -27,13 +27,15 @@ const initPropertySnippet = () => {
 
     const { offsetX, offsetY, duration, position, isTop } = copyBtn.dataset;
 
+    const durationNum = Number.parseInt(duration || '');
+
     const toasterProps = {
       text: toastText,
       offsetX,
       offsetY,
       isTop: isTop === 'true',
       position,
-      duration: Number.parseInt(duration || '0'),
+      duration: Number.isNaN(durationNum) ? undefined : durationNum,
     };
 
     copyBtn.addEventListener('click', async () => {
