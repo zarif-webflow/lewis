@@ -1,0 +1,15 @@
+.w-lightbox-figure {
+  position: relative;
+}
+
+.w-lightbox-figure::before {
+  content: '';
+  position: absolute;
+  bottom: 2em; /* Position at lower right */
+  right: 2em;
+  width: 16em; /* Set logo size */
+  height: 3.1515em;
+  background: url('https://cdn.prod.website-files.com/66c6eeb8373890a85675e475/67e6809847626c2bffdc3b14_lewis-logo-black.svg')
+    no-repeat center/contain;
+  background-size: contain;
+}
