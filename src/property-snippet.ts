@@ -27,17 +27,19 @@ const initPropertySnippet = () => {
 
     const { offsetX, offsetY, duration, position, isTop } = copyBtn.dataset;
 
-    const toaster = getToaster({
+    const toasterProps = {
       text: toastText,
       offsetX,
       offsetY,
       isTop: isTop === 'true',
       position,
       duration: Number.parseInt(duration || '0'),
-    });
+    };
 
     copyBtn.addEventListener('click', async () => {
       await navigator.clipboard.writeText(url);
+
+      const toaster = getToaster(toasterProps);
       toaster.showToast();
     });
   }
