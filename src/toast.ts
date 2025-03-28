@@ -28,7 +28,7 @@ export const getToaster = ({
 }) => {
   const toaster = Toastify({
     text,
-    duration: duration || 3000000,
+    duration: duration || 3000,
     ...toasterProps,
     position,
     gravity: isTop ? 'top' : 'bottom',
