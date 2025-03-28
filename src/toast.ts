@@ -9,17 +9,33 @@ const toasterProps = {
   position: 'right', // `left`, `center` or `right`
   stopOnFocus: true, // Prevents dismissing of toast on hover
   className: 'toast-style',
-  offset: {
-    x: '1em', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-    y: '1em', // vertical axis - can be a number or a string indicating unity. eg: '2em'
-  },
 };
 
-export const openToast = ({ text }: { text: string }) => {
+export const getToaster = ({
+  text,
+  duration,
+  position,
+  isTop,
+  offsetX,
+  offsetY,
+}: {
+  text: string;
+  duration?: number;
+  position?: string;
+  isTop?: boolean;
+  offsetX?: string;
+  offsetY?: string;
+}) => {
   const toaster = Toastify({
     text,
-    duration: 2000,
+    duration: duration || 3000000,
     ...toasterProps,
+    position,
+    gravity: isTop ? 'top' : 'bottom',
+    offset: {
+      x: offsetX || '1em', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+      y: offsetY || '1em', // vertical axis - can be a number or a string indicating unity. eg: '2em'
+    },
   });
-  toaster.showToast();
+  return toaster;
 };
